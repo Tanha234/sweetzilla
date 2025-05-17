@@ -1,0 +1,23 @@
+{
+    "rewrites": [
+      {
+        "source": "/server/(.*)",
+        "destination": "/server/index"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/client/build/index.html"
+      }
+    ],
+    "builds": [
+      {
+        "src": "client/build/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "server/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "outputDirectory": "client/build"
+  }
