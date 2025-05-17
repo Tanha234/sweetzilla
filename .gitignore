@@ -40,3 +40,4 @@ Thumbs.db  # Windows
 
 # TypeScript files (if applicable)
 *.tsbuildinfo
+.vercel
