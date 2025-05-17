@@ -1,0 +1,42 @@
+# Node modules for client and server
+/client/node_modules/
+/server/node_modules/
+
+# Build output
+/build/
+/dist/
+
+# Log files
+*.log
+
+# Dependency directories
+/.pnp/
+/.pnp.js
+
+# Environment variables file
+.env
+.env.local
+.env.*.local
+
+# Next.js build (if applicable)
+.next/
+
+# Yarn
+yarn.lock
+
+# NPM package-lock file
+package-lock.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# React Native (if using)
+.expo/
+
+# TypeScript files (if applicable)
+*.tsbuildinfo
