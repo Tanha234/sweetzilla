@@ -134,7 +134,7 @@ const ShopPage = () => {
       <option>Price: High to Low</option>
     </select>
     <button
-      className="ml-4 bg-berryPink text-white font-semibold py-2 px-4 rounded-lg hover:bg-pink-600 transition"
+      className="ml-4 border border-berryPink text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-pink-600 transition"
       onClick={() => navigate('/addCustomCake')}
     >
       Order Custom Cake
@@ -159,12 +159,12 @@ const ShopPage = () => {
                     <div className="text-yellow-400 text-sm my-1">⭐⭐⭐⭐☆</div>
                     <p className="text-berryPink font-bold text-lg mb-2">${availableSize?.price || 'N/A'}</p>
                   </Link>
-                  <button
+                  {/* <button
                     className="border border-berryPink text-gray-900 font-semibold py-2 px-4 rounded-lg hover:bg-berryPink hover:text-white transition duration-200 mt-2"
                     onClick={() => handleAddToCart(cake)}
                   >
                     Add to Cart
-                  </button>
+                  </button> */}
                 </div>
               );
             })}

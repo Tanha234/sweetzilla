@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function AboutUs() {
+  const navigate = useNavigate();
+
     return (
       <section className="bg-sweetPink text-[#493628] py-20 px-6 font-sans md:px-44">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -18,9 +22,13 @@ export default function AboutUs() {
               <li>✅ 100% preservative-free & eggless options</li>
               <li>✅ Custom cakes for every celebration</li>
             </ul>
-            <button className="bg-berryPink text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">
-              Explore Our Cakes
-            </button>
+            <button
+  onClick={() => navigate('/cakes')}
+  className="bg-berryPink text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition"
+>
+  Explore Our Cakes
+</button>
+
           </div>
   
           {/* Right: Image */}

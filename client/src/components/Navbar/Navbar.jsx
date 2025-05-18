@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
-import { Menu, X, LogIn, ShoppingCart, User, UserCog, LogOut } from "lucide-react";
-import { Link } from "react-router-dom";
-import { getAuth, onAuthStateChanged, signOut, getIdTokenResult } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {
+  Menu,
+  X,
+  LogIn,
+  ShoppingCart,
+  User,
+  UserCog,
+  LogOut,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+  getIdTokenResult,
+} from "firebase/auth";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +22,14 @@ export default function Navbar() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const navLinks = ["Home", "About", "Cakes", "Gallery", "Contact"];
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Cakes", path: "/cakes" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,27 +74,28 @@ export default function Navbar() {
       await signOut(auth);
       setCurrentUser(null);
       setIsAdmin(false);
-      navigate("/login"); 
+      navigate("/login");
     } catch (error) {
       console.error("Error signing out:", error);
     }
   };
-  
 
   return (
     <nav className="bg-sweetPink shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-12 py-7 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-berryPink tracking-wide">🍰 SweetDelights</h1>
+        <h1 className="text-2xl font-bold text-berryPink tracking-wide">
+          🍰 SweetDelights
+        </h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 text-berryPink font-medium items-center">
           {navLinks.map((link) => (
             <Link
-              key={link}
-              to={`/${link.toLowerCase()}`}
+              key={link.name}
+              to={link.path}
               className="hover:text-berryPink transition"
             >
-              {link}
+              {link.name}
             </Link>
           ))}
 
@@ -134,12 +154,12 @@ export default function Navbar() {
         <div className="md:hidden px-4 pb-4 flex flex-col gap-4 bg-sweetPink text-berryPink">
           {navLinks.map((link) => (
             <Link
-              key={link}
-              to={`/${link.toLowerCase()}`}
+              key={link.name}
+              to={link.path}
               className="hover:text-pink-600"
               onClick={() => setIsOpen(false)}
             >
-              {link}
+              {link.name}
             </Link>
           ))}
 
